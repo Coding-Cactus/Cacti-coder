@@ -180,10 +180,11 @@ pre code {
   border: none;
 }
 
-.str { color: #FDE74C }
-.num { color: #C3423F }
-.key { color: #5BC0EB}
-.comment { color: #7AEB8D}
+.hljs-string { color: #FDE74C }
+.hljs-number { color: #C3423F }
+.hljs-keyword { color: #5BC0EB}
+.hljs-built_in { color: #FF8000}
+.hljs-comment { color: #7AEB8D}
 
 #challenge form {
   display: inline;

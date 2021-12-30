@@ -9,14 +9,6 @@
 		<h1>Challenge {{challenge["_id"]}} : {{challenge["title"]}}</h1>
 
 		<div id="content">{{challenge["content"]}}</div>
-		<script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
-		<script>
-			document.querySelector("#content").innerHTML = new showdown.Converter().makeHtml(document.querySelector("#content").innerHTML)
-
-			document.querySelectorAll("pre code:not(.py)").forEach(code => {
-				code.innerHTML = new showdown.Converter().makeHtml(code.innerHTML);
-			});
-		</script>
 
 		{% if user["last_completed"] < challenge["_id"] %}
 			<p>To begin, <a target="_blank" href="{{challenge['_id']}}/input">get your input</a></p>
@@ -34,6 +26,22 @@
 	</div>
 {% endblock %}
 
+
 {% block scripts %}
-<script src="/static/js/highlighting.js"></script>
+<script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
+<script>
+	document.querySelector("#content").innerHTML = new showdown.Converter().makeHtml(document.querySelector("#content").innerHTML)
+
+	document.querySelectorAll("pre code:not(.py)").forEach(code => {
+		code.innerHTML = new showdown.Converter().makeHtml(code.innerHTML);
+	});
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+<script>
+document.querySelectorAll("code.py").forEach(itm => {
+	itm.innerHTML = hljs.highlight(itm.innerText, {language: 'python'}).value
+});
+</script>
 {% endblock %}
