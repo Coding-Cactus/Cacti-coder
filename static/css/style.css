@@ -156,7 +156,7 @@ pre {
   white-space: pre-wrap;
   background-color: var(--background-secondary);
   width: max-content;
-  max-width: 100%;
+  max-width: calc(100% - 125px);
   margin-left: 50px;
   padding: 10px;
   border: 1px solid var(--font-secondary);
@@ -277,15 +277,21 @@ pre code {
     display: block;
     width: max-content;
     margin-bottom: 10px;
-  }
-
-  nav button, nav :last-child {
-    margin-left: 0;
+    margin-left: 0 !important;
   }
 
   .homepage #buttons button {
     font-size: 20px;
     margin: 22px 10px;
     font-weight: bold;
+  }
+
+  #challenge h1 {
+    font-size: 35px;
+  }
+	
+  #challenge pre {
+    margin: auto;
+	max-width: 90%;
   }
 }
