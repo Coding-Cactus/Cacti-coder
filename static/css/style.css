@@ -1,0 +1,290 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans&family=Source+Code+Pro:wght@500&display=swap");
+
+:root {
+  --background-primary: #242424;
+  --background-secondary: #444448;
+  --font-primary: #ebebeb;
+  --font-secondary: #aeaeb2;
+  --font-tirtiary: #444448;
+  --highlight-1: #7AEB8D;
+  --highlight-2: #678D58;
+  --highlight-3: #6eb257;
+}
+
+
+body {
+  margin: 20px;
+  font-family: 'Source Code Pro', monospace;
+  background-color: var(--background-primary);
+  color: var(--font-primary);
+}
+
+
+body.homepage {
+  background-image: url('/static/media/Coding-Background.png');
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+  background-size: cover;  
+}
+
+
+p.homepage {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 90%;
+}
+
+.homepage #buttons {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepage #buttons button {
+  font-family: 'Source Code Pro', monospace;
+  cursor: pointer;
+  border: 2px solid;
+  border-color: var(--highlight-1);
+  background-color: transparent;
+  border-radius: 5px;
+  color: var(--highlight-1);
+  padding: 8px;
+  margin: 22px 54px;
+  font-size: 24px;
+  transition: 0.15s;
+}
+
+.homepage #buttons button:hover {
+  background-color: var(--background-secondary);
+}
+
+
+h1 {
+  position: relative;
+  top: 10px;
+  color: var(--highlight-1);
+  text-align: center;
+  font-size: 70px;
+}
+
+
+nav a {
+  color: var(--highlight-1);
+  text-decoration: none;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: 0.15s;
+  vertical-align: middle;
+}
+
+a {  
+  color: var(--highlight-1);
+}
+
+
+a:hover {
+  color: var(--highlight-2);
+}
+
+
+nav {
+  position: relative;
+  padding: 20px;
+  top: 0;
+  left: 0;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+nav img {
+    width: 30px;
+    height: auto;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+
+nav button, nav :last-child:not(script) {
+  font-family: 'Source Code Pro', monospace;
+  margin-left: auto;
+  font-size: 15px;
+  font-weight: bold;
+
+  border: 2px solid;
+  border-color: var(--highlight-1);
+  background-color: transparent;
+  border-radius: 5px;
+  color: var(--highlight-1);
+  padding: 8px;
+  transition: 0.15s;
+}
+
+
+nav button:hover {
+  background-color: var(--background-secondary);
+  cursor: pointer;
+}
+
+
+main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+
+#challenge, #challenges {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 20px;
+  margin: 50px auto;
+}
+
+
+span ion-icon {
+  transform: scale(1.5);
+}
+
+#content {	
+  line-height: 26px;
+}
+
+pre {
+  white-space: pre-wrap;
+  background-color: var(--background-secondary);
+  width: max-content;
+  max-width: 100%;
+  margin-left: 50px;
+  padding: 10px;
+  border: 1px solid var(--font-secondary);
+}
+
+pre * { white-space: pre-wrap; }
+
+pre p {
+  margin: 0;
+}
+
+code {
+  padding: 0 3px;
+  background-color: var(--background-secondary);
+  border: 1px solid var(--font-secondary);
+}
+
+pre code {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.str { color: #FDE74C }
+.num { color: #C3423F }
+.key { color: #5BC0EB}
+.comment { color: #7AEB8D}
+
+#challenge form {
+  display: inline;
+  border: none;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 20px;
+  
+}
+
+#challenge form input {
+  margin: 10px auto;
+  padding: 2px;
+  font-size: 18px;
+  color: var(--font-primary);
+  border: 1px solid var(--font-secondary);
+  background-color: var(--background-secondary);
+  font-family: inherit;
+}
+
+#challenge form button {
+  font-family: 'Source Code Pro', monospace;
+
+  border: 2px solid;
+  border-color: var(--highlight-1);
+  background-color: transparent;
+  border-radius: 5px;
+  color: var(--highlight-1);
+  padding: 5px;
+  transition: 0.15s;
+}
+
+
+#challenge form button:hover {
+  background-color: var(--background-secondary);
+  cursor: pointer;
+}
+
+
+#admin {  
+  margin: 30px auto;
+}
+
+#admin input {	
+  margin: 10px auto;
+  padding: 2px;
+  font-size: 18px;
+  color: var(--font-primary);
+  border: 1px solid var(--font-secondary);
+  background-color: var(--background-secondary);
+  font-family: inherit;
+}
+
+#admin textarea {
+  margin: 10px auto;
+  width: 100%;
+  height: 65vh;
+  resize: vertical;
+  padding: 5px;
+  font-size: 18px;
+  color: var(--font-primary);
+  border: 1px solid var(--font-secondary);
+  background-color: var(--background-secondary);
+}
+
+#admin textarea:focus {	
+  outline: 3px solid var(--font-tirtiary);
+}
+
+#admin button {	
+  font-family: 'Source Code Pro', monospace;
+  cursor: pointer;
+  border: 2px solid;
+  border-color: var(--highlight-1);
+  background-color: transparent;
+  border-radius: 5px;
+  color: var(--highlight-1);
+  padding: 8px;
+  font-size: 24px;
+  transition: 0.15s;
+}
+
+#admin button:hover {
+  background-color: var(--background-secondary);
+}
+
+@media screen and (max-width: 600px) {
+  nav { display: block; }
+	
+  nav > * {
+    display: block;
+    width: max-content;
+    margin-bottom: 10px;
+  }
+
+  nav button, nav :last-child {
+    margin-left: 0;
+  }
+
+  .homepage #buttons button {
+    font-size: 20px;
+    margin: 22px 10px;
+    font-weight: bold;
+  }
+}

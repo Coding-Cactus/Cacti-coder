@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block head %}
+	<script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
+{% endblock %}
+
+{% block main %}
+	<div id="challenges">
+		{% for challenge in range(challenges|length) %}
+			<p>
+				{% if authed and challenge < user["last_completed"] %}
+					<span><ion-icon name="checkmark-outline"></ion-icon></span>
+					<a href="/challenge/{{challenge+1}}">Challenge {{challenge+1}} : {{challenges[challenge]["title"]}}</a>
+				{% elif authed and (user["admin"] or challenge == user["last_completed"]) %}
+					<span><ion-icon name="lock-open-outline"></ion-icon></span>
+					<a href="/challenge/{{challenge+1}}">Challenge {{challenge+1}} : {{challenges[challenge]["title"]}}</a>
+				{% else %}
+					<span><ion-icon name="lock-closed-outline"></ion-icon></span>
+					<span>Challenge {{challenge+1}} : {{challenges[challenge]["title"]}}</span>
+				{% endif %}
+			</p>
+		{% endfor %}
+
+		{% if user["admin"] %}
+			<p>
+				<span><ion-icon name="create-outline"></ion-icon></span>
+				<a href="/challenges/write">Write a Challenge</a>
+			</p>
+		{% endif %}
+	</div>
+{% endblock %}

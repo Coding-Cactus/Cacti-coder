@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{%block bodyclass %}homepage{% endblock %}
+
+{% block main %}
+	<h1 class='homepage'>Cacti Coder</h1>
+
+	<p class='homepage'>Welcome to Cacti Coder, a fun place to develop your coding skills and compete with your friends. To start, log in with your Replit account and then have a go at the first challenge. We have provided coding hits to get you started.
+  </p>
+  
+  <p class='homepage'>Even if you're new to file handling we have provided a demo solution to the first challenge to help you undersatnd how to read in and process an input from a file.</p>
+
+
+	<div id="buttons">
+		{% if not authed %}        
+	        <script src="/static/js/replauth.js" authed="location.reload();"></script>
+        {% endif %}
+
+		<button onclick="location.href = '/challenges'">Challenges</button>
+	</div>
+  
+{% endblock %}

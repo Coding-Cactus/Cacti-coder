@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block main %}
+	{% if correct %}
+		<p>Congratulations, that's <span style="color: #0c0">correct</span>!</p>
+		<p><a href="/challenges">Return to challenges</a></p>
+	{% else %}
+		<p>That's <span style="color: #c00">incorrect</span>, make sure that you're using your full unique input data and check your solution works for the example data. Try using the exaple input data to debug your program.</p>
+		<p><a href="../{{challenge}}">Return to the challenge</a></p>
+	{% endif %}
+{% endblock %}

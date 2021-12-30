@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block main %}
+	<div id="challenge">
+		{% if user["admin"] %}
+			<a href="{{challenge['_id']}}/edit">Edit Challenge</a>
+		{% endif %}
+		
+		<h1>Challenge {{challenge["_id"]}} : {{challenge["title"]}}</h1>
+
+		<div id="content">{{challenge["content"]}}</div>
+		<script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
+		<script>
+			document.querySelector("#content").innerHTML = new showdown.Converter().makeHtml(document.querySelector("#content").innerHTML)
+
+			document.querySelectorAll("pre code:not(.py)").forEach(code => {
+				code.innerHTML = new showdown.Converter().makeHtml(code.innerHTML);
+			});
+		</script>
+
+		{% if user["last_completed"] < challenge["_id"] %}
+			<p>To begin, <a target="_blank" href="{{challenge['_id']}}/input">get your input</a></p>
+			
+			<span>Answer:</span>
+			<form method="post" action="{{challenge['_id']}}/answer">
+				<input name="answer" required></input>
+				<button type="submit">Submit</button>
+			</form>
+		{% else %}
+			<p>If you still want to see it, you can <a target="_blank" href="{{challenge['_id']}}/input">get your input</a></p>
+			
+			<p>Your unique input's answer was <code>{{user["challenges"][challenge["_id"]|string]["result"]}}</code></p>
+		{% endif %}
+	</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/highlighting.js"></script>
+{% endblock %}

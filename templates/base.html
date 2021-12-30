@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Cacti Coder</title>
+		<link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" type="image/jpg" href="/static/media/Favicon.png"/>
+
+		{% block head %}{% endblock %}
+	</head>
+ 
+	<body class='{% block bodyclass %}{% endblock %}'>
+  
+      <nav>
+        <img src="/static/media/Cactus-Logo.png" class="img-fluid">
+        <a href="/">Home</a>
+        <a href="/challenges">Challenges</a>
+
+		  
+        {% if not authed %}        
+	        <script src="/static/js/replauth.js" authed="location.reload();"></script>
+		{% else %}
+			<span>Logged in as {{user["username"]}}</span>
+        {% endif %}
+
+      </nav>
+
+      <main>
+        {% block main %}{% endblock %}
+      </main>
+    
+    {% block scripts %}{% endblock %}
+    
+    <script>
+      if (window.location.href.substring(0, 7) === "http://") {
+        window.location.href = window.location.href.replace("http://", "https://")
+      }
+    </script>
+  
+   </body>
+</html>

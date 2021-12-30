@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block main %}
+	<form id="admin" method="post" action="{{form_url}}">
+		<input name="title" value="{{title}}" placeholder="Challenge title" required>
+		<textarea name="content" placeholder="Write challenge description in markdown" required>{{content}}</textarea>
+		<button type="submit">Submit</button>
+	</form>
+{% endblock %}
