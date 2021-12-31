@@ -1,3 +1,4 @@
 .env
 challenges.md
 __pycache__/
+.breakpoints
