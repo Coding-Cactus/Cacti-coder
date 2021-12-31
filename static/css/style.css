@@ -109,7 +109,7 @@ nav img {
 }
 
 
-nav button, nav :last-child:not(script) {
+nav > button, nav > :last-child:not(script) {
   font-family: 'Source Code Pro', monospace;
   margin-left: auto;
   font-size: 15px;

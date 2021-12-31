@@ -157,3 +157,42 @@ def challenge_4():
 		grid[y] = ",".join(list(map(str, grid[y])))
 
 	return super_cacti, grid
+
+def challenge_5():
+  waterLevel = [0]*1000
+  height = [0]*1000
+  nuitrients = [0]*1000
+
+  for index in range(len(waterLevel)):
+    waterLevel[index] = randint(1, 1000)
+    height[index] = randint(50, 1000)
+    nuitrients[index] = randint(1, 1000)
+
+  mappingOfElements = {0: waterLevel, 1: height, 2: nuitrients}
+
+  grid = [[None for __ in range(3)] for _ in range(1000)]
+
+  for row in range(len(waterLevel)):
+    for column in range(3):
+      grid[row][column] = str(mappingOfElements[column][row])
+  
+  challengeInput = [None] * 1000
+
+  for row in range(len(challengeInput)):
+    challengeInput[row] = ",".join(grid[row])
+
+  #Solution
+  data = [list(map(int, i.split(","))) for i in challengeInput]
+
+  waterCost = 0
+  nutrientsCost = 0
+
+  for cactus in data:
+    if (cactus[0] * cactus[1] * cactus[2]) < 3000000:
+      waterCost += (ceil(3000000 / (cactus[1] * cactus[2]))) - cactus[0]
+      nutrientsCost += ((ceil(3000000 / (cactus[0] * cactus[1]))) - cactus[2]) * 1.5
+
+  minCost = min(waterCost, nutrientsCost)
+
+  
+  return minCost, challengeInput
